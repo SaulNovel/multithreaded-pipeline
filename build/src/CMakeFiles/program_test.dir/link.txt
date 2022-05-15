@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/program_test.dir/main.cpp.o  -o program_test  ../pipeline/libpipeline.a -pthread 
