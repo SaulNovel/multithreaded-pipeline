@@ -37,4 +37,19 @@ ldd program_test
 
  ./program_test             runs program, for more details view example code in main.cpp
 ```
- 
+
+# Valgrind
+
+```
+valgrind --tool=memcheck --leak-check=yes ./program_test
+
+==32734== HEAP SUMMARY:
+==32734==     in use at exit: 0 bytes in 0 blocks
+==32734==   total heap usage: 295 allocs, 295 frees, 109,600 bytes allocated
+==32734== 
+==32734== All heap blocks were freed -- no leaks are possible
+==32734== 
+==32734== For lists of detected and suppressed errors, rerun with: -s
+==32734== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```
+

@@ -35,7 +35,7 @@ Image applyTransform0(Image& image) {
 Image applyTransform1(Image& image) {
     //logger(__PRETTY_FUNCTION__);
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     return Image(image.getName() + "_transform1");
 }

@@ -1,8 +1,0 @@
-/mnt/c/Users/snovelgo/VisualStudioProjects/multithreaded-pipeline/build/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/snovelgo/VisualStudioProjects/multithreaded-pipeline/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/snovelgo/VisualStudioProjects/multithreaded-pipeline/build/pipeline/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/snovelgo/VisualStudioProjects/multithreaded-pipeline/build/pipeline/CMakeFiles/edit_cache.dir
-/mnt/c/Users/snovelgo/VisualStudioProjects/multithreaded-pipeline/build/pipeline/CMakeFiles/pipeline.dir
-/mnt/c/Users/snovelgo/VisualStudioProjects/multithreaded-pipeline/build/src/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/snovelgo/VisualStudioProjects/multithreaded-pipeline/build/src/CMakeFiles/edit_cache.dir
-/mnt/c/Users/snovelgo/VisualStudioProjects/multithreaded-pipeline/build/src/CMakeFiles/program_test.dir
