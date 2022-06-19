@@ -13,7 +13,7 @@ private:
     /** Holds input device objects **/
     std::atomic<bool> m_stop;
     using queue_type = thread_safe_queue<T>;
-    std::unique_ptr<queue_type> m_input;
+    queue_type m_input;
 
     /** transform stages **/
     int m_taskCount;
@@ -24,9 +24,8 @@ private:
 
 public:
 
-    Pipeline() : m_stop(false), m_taskCount(0) {
-        m_input = std::make_unique<queue_type>(m_stop);
-    }
+    Pipeline() : m_stop(false), m_input(m_stop), m_taskCount(0) 
+    {}
 
     Pipeline (const Pipeline&) = delete;
     Pipeline& operator= (const Pipeline&) = delete;
@@ -45,7 +44,7 @@ public:
     void addStage(const std::function<T(void)>& stage) {
         
         auto obj = stage();
-        m_input->push(obj);
+        m_input.push(obj);
     }
 
     /**
@@ -67,9 +66,9 @@ public:
      * @param stage transform stage function
     */
     void addStage(const std::function<T(T&)>& stage) {
-
-        auto& input = m_tasks.empty() ? *m_input : m_tasks.back()->output();
+        auto& input = m_tasks.empty() ? m_input : m_tasks.back()->output();
         auto task = std::make_unique<Task<T>>(++m_taskCount, stage, input);
+
         m_tasks.push_back(std::move(task));
     }
 
@@ -83,7 +82,7 @@ public:
         }
 
         /** Amount of objects from input device **/
-        int input_size = static_cast<int>(m_input->size());
+        int input_size = static_cast<int>(m_input.size());
 
         /** Transform stages **/
         for (auto& task : m_tasks) {

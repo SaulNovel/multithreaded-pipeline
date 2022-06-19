@@ -31,7 +31,7 @@ private:
     std::atomic<bool> m_stop;
 
     /** Output container of transformed objects **/
-    std::unique_ptr<queue_type> m_output;
+    queue_type m_output;
 
     /** Keeps track of objects processed **/
     int m_count;
@@ -65,7 +65,7 @@ private:
                 // transform obj and copy it on output
                 auto obj_output = m_task(obj_input);
                 logger("output", obj_output);
-                m_output->push(obj_output);
+                m_output.push(obj_output);
 
                 m_count--;
             }
@@ -83,10 +83,9 @@ public:
         m_task(task),
         m_input(input), 
         m_stop(false),
+        m_output(m_stop),
         m_count(0)
-    {
-        m_output = std::make_unique<queue_type>(m_stop);
-    }
+    {}
 
     Task(const Task&) = delete;
     Task& operator= (const Task&) = delete;
@@ -136,7 +135,7 @@ public:
      * @return m_output
     */
     queue_type& output() {
-        return *m_output;
+        return m_output;
     }
 
 };

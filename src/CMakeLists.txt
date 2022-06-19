@@ -1,6 +1,6 @@
 project(task-pipeline)
 
-set(BINARY program_test)
+set(BINARY program_run)
 
 Set(SOURCES
     main.cpp
